@@ -1,4 +1,4 @@
-name: Train ML Model
+name: Train ML Modell
 
 on:
   push:
