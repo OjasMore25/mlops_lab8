@@ -1,0 +1,32 @@
+name: Train ML Model
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Clone dataset repo
+        run: |
+          git clone https://huggingface.co/datasets/OjasMore/mlops_lab8 dataset_repo
+          mkdir -p data
+          cp dataset_repo/housing.csv data/
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Train model
+        run: |
+          python train.py

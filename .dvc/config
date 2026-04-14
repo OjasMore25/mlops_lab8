@@ -1,0 +1,4 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = https://huggingface.co/datasets/OjasMore/mlops_lab8
